@@ -1,0 +1,31 @@
+name: Pronote → Notion sync
+
+on:
+  schedule:
+    # every 30 minutes (change as needed). min interval = 5 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {} # manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Run sync script
+        env:
+          PRONOTE_URL: ${{ secrets.PRONOTE_URL }}
+          PRONOTE_USERNAME: ${{ secrets.PRONOTE_USERNAME }}
+          PRONOTE_PASSWORD: ${{ secrets.PRONOTE_PASSWORD }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python pronote_to_notion.py
