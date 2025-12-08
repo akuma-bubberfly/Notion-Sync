@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from notion_client import Client
 
 # Chargement du .env
-load_dotenv("C:/Users/raphaellousada/Documents/Coding/pronote notion/credentials.env")
+load_dotenv()
 
 PRONOTE_URL = os.getenv("PRONOTE_URL")
 PRONOTE_USERNAME = os.getenv("PRONOTE_USERNAME")
