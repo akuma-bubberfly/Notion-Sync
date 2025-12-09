@@ -9,7 +9,8 @@ notion = Client(auth=NOTION_TOKEN)
 
 def refill_energy_mana():
     # Query all pages in the database
-    results = notion.databases.query(database_id=DATABASE_ID).get("results", [])
+    response = notion.databases.query(database_id=DATABASE_ID)
+    results = response.get("results", [])
 
     for page in results:
         page_id = page["id"]
