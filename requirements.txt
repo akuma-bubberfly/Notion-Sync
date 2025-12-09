@@ -1,3 +1,2 @@
 pronotepy
 notion-client
-python-dotenv
