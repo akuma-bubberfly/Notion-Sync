@@ -8,8 +8,10 @@ DATABASE_ID = os.getenv("DATABASE_ID")
 notion = Client(auth=NOTION_TOKEN)
 
 def refill_energy_mana():
-    # Query all pages in the database
-    response = notion.databases.query(database_id=DATABASE_ID)
+    response = notion.databases.query(
+        database_id=DATABASE_ID,
+        filter={}
+    )
     results = response.get("results", [])
 
     for page in results:
