@@ -1,2 +1,2 @@
 pronotepy
-notion-client>=2.0.0
+notion-client
