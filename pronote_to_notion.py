@@ -9,7 +9,7 @@ load_dotenv()
 PRONOTE_URL = os.getenv("PRONOTE_URL")
 PRONOTE_USERNAME = os.getenv("PRONOTE_USERNAME")
 PRONOTE_PASSWORD = os.getenv("PRONOTE_PASSWORD")
-NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+NOTION_TOKEN = os.getenv("NOTION_TOKEN_P")
 NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
 missing = [var for var, val in [
