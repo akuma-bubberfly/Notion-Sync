@@ -2,9 +2,8 @@ import os
 import pronotepy
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from notion_client import Client
+from notion-client import Client
 
-# Chargement du .env
 load_dotenv()
 
 PRONOTE_URL = os.getenv("PRONOTE_URL")
@@ -25,10 +24,8 @@ if missing:
     print(f"❌ Variables manquantes : {', '.join(missing)}")
     exit(1)
 
-# Connexion Notion
 notion = Client(auth=NOTION_TOKEN)
 
-# Connexion Pronote
 print("Connexion à Pronote...")
 client = pronotepy.Client(PRONOTE_URL, username=PRONOTE_USERNAME, password=PRONOTE_PASSWORD)
 

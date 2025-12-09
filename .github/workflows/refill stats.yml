@@ -1,0 +1,25 @@
+name: Daily Refill Energy and Mana
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight UTC
+
+jobs:
+  refill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run refill script
+        run: python refill_dashboard.py
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN_STARDEW }}
+          DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID_STARDEW }}
