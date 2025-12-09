@@ -1,5 +1,5 @@
 import os
-from notion-client import Client
+from notion_client import Client
 
 # Read secrets from environment variables
 NOTION_TOKEN = os.getenv("NOTION_TOKEN")

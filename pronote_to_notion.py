@@ -2,7 +2,7 @@ import os
 import pronotepy
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from notion-client import Client
+from notion_client import Client
 
 load_dotenv()
 
