@@ -1,2 +1,0 @@
-pronotepy
-notion_client
